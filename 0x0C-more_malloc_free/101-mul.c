@@ -1,68 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-/**
-*
-*
-*
-*
-*
-*
-*
-*
-*/
+#include "holberton.h"
 
-int main(int ac, char **av)
+/**
+ * main - multiplies two positive numbers
+ * @argc: n arguments
+ * @argv: args
+ * Return: int
+ */
+int main(int argc, char *argv[])
 {
-	int i, j, num1, num2, res;
-	if (ac != 3)
+unsigned long mul;
+int i, j;
+	if (argc != 3)
+	{ printf("Error\n");
+	exit(98); }
+	for (i = 1; i < argc; i++)
 	{
-		for (i = 0; i < ac; i++)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			for (j = 0; j < av[1]; j++)
-			{
-				if (av[1][j] <= '0' || av[1][j] >= '9')
-				{
-					printf("Error\n");
-					exit(98);
-				}
-			}
-			for (j = 0; j < av[2]; j++)
-			{
-				if (av[2][j] <= '0' || av[2][j] >= '9')
-				{
-					printf("Error\n");
-					exit(98);
-				}
-			}
-			num1 = atoi(av[1]);
-			num2 = atoi(av[2]);
-			res = num1 * num2;
-			printf("%d\n", res);
+			if (argv[i][j] > 57 || argv[i][j] < 48)
+			{  printf("Error\n");
+			exit(98); }
 		}
-	}
-	else
-	{
-		printf("Error\n");
-		exit(98);
-	}
-	return (0);
-}
 
-/**
-* _strlen - get the length of string
-*
-* @str: the string to be checked
-*
-* Return: the length of string
-*/
-
-int _strlen(char *str)
-{
-	int i = 0;
-
-	while (str[i] != '\0')
-	{
-		i++;
 	}
-	return (i);
+	mul = atol(argv[1]) *  atol(argv[2]);
+	printf("%lu\n", mul);
+return (0);
 }
